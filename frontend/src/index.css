@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&family=Outfit:wght@100..900&family=Prata&display=swap");
+@import "tailwindcss";
+
+body {
+  font-family: "Outfit";
+}
+
+#logo {
+  font-family: "Prata";
+}
+
+a.active hr {
+  display: block;
+}
