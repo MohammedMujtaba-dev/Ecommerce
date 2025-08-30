@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { assets } from "../assets/assets";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../context/ContextProvider";
+import { useNavigate } from "react-router-dom";
 
 const PlaceOrder = () => {
   const { method, setMethod } = useContext(ShopContext);
@@ -16,8 +17,30 @@ const PlaceOrder = () => {
   const [state, setState] = useState("");
   const [zipcode, setZipcode] = useState("");
   const [country, setCountry] = useState("");
+
+  // inside PlaceOrder
+  const navigate = useNavigate();
+
   const formSubmit = (e) => {
     e.preventDefault();
+
+    // if all fields filled, you can navigate
+    if (
+      firstName &&
+      lastName &&
+      email &&
+      phone &&
+      street &&
+      city &&
+      state &&
+      zipcode &&
+      country &&
+      method
+    ) {
+      navigate("/orders");
+    } else {
+      alert("Please fill all fields and select payment method.");
+    }
   };
 
   return (
@@ -171,7 +194,7 @@ const PlaceOrder = () => {
             type="submit"
             className="bg-black text-white px-4 text-sm py-2 rounded mt-4 cursor-pointer "
           >
-            <Link to={"/orders"}> PLACE ORDER</Link>
+            <p> PLACE ORDER</p>
           </button>
         </div>
       </div>
