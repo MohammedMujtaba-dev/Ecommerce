@@ -88,9 +88,19 @@ const Cart = () => {
       <div className="flex  sm:mx-0 mx-4 my-20  ">
         <div className="w-full sm:w-[450px] border-0 sm:border-2 border-gray-500 p-0 sm:p-6 rounded-xl">
           <CartTotal />
-          <button className=" rounded-md cursor-pointer px-3 py-2 bg-black active:bg-gray-500 text-white text-sm mt-5 ">
-            <Link to="/placeorder"> PROCEED TO PAYMENT</Link>
-          </button>
+          {cart.length === 0 ? (
+            <button
+              className={` rounded-md cursor-pointer px-3 py-2 bg-gray-500 text-white text-sm mt-5 `}
+            >
+              <Link> PROCEED TO PAYMENT</Link>
+            </button>
+          ) : (
+            <button
+              className={` rounded-md cursor-pointer px-3 py-2 bg-black active:bg-gray-500 text-white text-sm mt-5 `}
+            >
+              <Link to="/placeorder"> PROCEED TO PAYMENT</Link>
+            </button>
+          )}
         </div>
       </div>
     </div>
